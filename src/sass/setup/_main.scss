@@ -1,0 +1,15 @@
+$direction: top right;  // gradient direction
+
+@mixin background-gradient($dir, $col1, $col2, $col3) {
+  background: -webkit-linear-gradient(to $dir, $col1, $col2, $col3);
+  background: -moz-linear-gradient(to $dir, $col1, $col2, $col3);
+  background: -ms-linear-gradient(to $dir, $col1, $col2, $col3);
+  background: linear-gradient(to $dir, $col1, $col2, $col3);
+}
+
+body {
+  background: $gradient2;
+  @media screen and (min-width: 768px) {
+    @include background-gradient($direction, $gradient1, $gradient2, $gradient3);
+  }
+}

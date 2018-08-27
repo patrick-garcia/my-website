@@ -1,0 +1,22 @@
+<div class="profile">
+  <main>
+    <h1>Profile</h1>
+    <article>
+      <p>{{ bio.paragraph1 }}</p>
+      <p>{{ bio.paragraph2 }}</p>
+      <p>{{ bio.paragraph3 }}</p>
+    </article>
+  </main>
+  
+  <div class="skills">
+    <section *ngFor="let item of newList">
+      <h4>{{ item.title }}</h4>
+      <ul>
+        <li *ngFor="let listItem of item.list">
+          {{ listItem }}
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>
+

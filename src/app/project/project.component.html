@@ -1,0 +1,37 @@
+<div class="project">
+  <h1>Projects</h1>
+
+  <main>
+    <div class="filters">
+      <div class="filter">all</div>
+      <div class="filter">jQuery</div>
+      <div class="filter">angular</div>
+      <div class="filter">Sass</div>
+    </div>
+
+    <div class="gallery">
+      <section class="card" *ngFor="let x of gallery">
+        
+        <div class="gallery-img"
+          [ngStyle]="{
+            'background': 'url(' + x.imgPath + ') center center',
+            'background-size': 'cover'
+          }">
+        </div>
+        
+        <div class="overlay"></div>
+
+        <div class="title">
+          <h2>{{ x.heading }}</h2>
+          <p>{{ x.desc }}</p>
+        </div>
+        
+        <div class="go-to">
+          <a [href]="x.url" target="_blank">see website</a>
+        </div>
+
+      </section>
+    </div>
+    
+  </main>
+</div>

@@ -1,0 +1,223 @@
+@import "../../styles.scss";
+$red-icon: $red-dark;
+
+@mixin slidedown-nav($duration: .4s, $delay: 1s) {
+  animation: slideDown $duration ease-in $delay forwards;
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-60px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  height: 8rem;
+  background: rgba(1, 1, 1, .0);
+  transition: background .3s ease-in;
+  z-index: 2;
+}
+
+.nav-toggle-label {
+  background: rgba(1, 1, 1, .25);
+  position: absolute;
+  top: 0; right: 0;
+  height: 8rem;
+  width: 8rem;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  span,
+  span::before,
+  span::after {
+    display: block;
+    background: $white;
+    height: .2rem;
+    width: 2.4rem;
+    border-radius: 2px;
+    position: relative;
+    transform: translateX(0);
+    transition: background .2s ease-in, transform .2s ease-in;
+  }
+
+  span::before,
+  span::after {
+    content: '';
+    position: absolute;
+  }
+
+  span::before {
+    bottom: .8rem;
+  }
+
+  span::after {
+    top: .8rem;
+  }
+}
+
+div.navbar-group-mobile {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(1, 1, 1, .7);
+  width: 100%;
+  transform: scale(1, 0);
+  transform-origin: top;
+  transition: transform 400ms ease-in-out;
+
+  ul {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 2rem 0 0 0;
+  }
+}
+
+div.navbar-group-mobile ul li {
+  padding: 1rem 0;
+
+  a {
+    @include font-set();
+    font-size: 2rem;
+    color: $white;
+    text-decoration: none;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 150ms ease-in-out;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 2px;
+      background: $red-dark;
+      margin: .4rem auto 0 auto;
+      opacity: .75;
+      transition: opacity .2s ease-in;
+    }
+  }
+}
+
+input[type=checkbox] {
+  display: none;
+
+  &:checked ~ div.navbar-group-mobile {
+    transform: scale(1, 1);
+  }
+
+  &:checked ~ .navbar-group-mobile ul li a {
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 250ms;
+  }
+
+  &:checked ~ label span, &:checked ~ label span::before, &:checked ~ label span::after {
+    background: darken($white, 30%);
+    transform: translateX(5px); // includes two pseudo element, below line reverses
+  }
+
+  &:checked ~ label.nav-toggle-label span::before, &:checked ~ label.nav-toggle-label span::after {
+    content: '';
+    transform: translateX(-10px); // override span above
+  }  
+}
+
+div.navbar-group {
+  display: none;
+}
+
+// ****
+@include media-480 {
+
+  .nav-toggle-label {
+    margin: 2rem 2rem 0 0;
+    background: rgba(1, 1, 1, 0);
+    transition: background .3s ease-in;
+  }
+
+  div.navbar-group {
+    display: block;
+    position: absolute;
+    top: 0; right: 0;
+    margin: 10rem 2rem 0 0;
+    width: 8rem;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+    background: none;
+    transition: opacity .3s ease-in, transform .3s ease-in, background .3s ease-in;
+    
+    ul {
+      padding: 0;
+      text-align: center;
+    }
+  }
+      
+  div.navbar-group ul li.nav-icon {
+    z-index: 3;
+    margin: 2.2rem 0;
+    position: relative;
+    color: $white;
+    font-size: 2.4rem;
+    transition: color .2s ease-in;
+    
+    &:hover {
+      color: $red-icon;
+    }
+
+    &:hover ul li.nav-icon-side {
+      color: rgba(255, 255, 255, 1);
+      transform: scaleX(1);
+      background: rgba(1, 1, 1, .5);
+    }
+
+    ul li.nav-icon-side {
+      @include font-set(200);
+      font-size: 1.6rem;
+      color: rgba(255, 255, 255, 0);
+      background: rgba(1, 1, 1, 0);
+      width: 11rem;
+      height: 4.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      text-transform: uppercase;
+      position: absolute;
+      left: -11rem;
+      top: -1rem;
+      transform: translate(0, -2.4rem);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: color .2s ease-in, background .2s ease-in, transform .25s ease-in;
+    }
+  }
+    
+  input[type=checkbox]:checked ~ div.navbar-group {
+    opacity: 1;
+    transform: scaleY(1);
+    background: rgba(1, 1, 1, .5);
+  }
+
+  input[type=checkbox]:checked ~ .nav-toggle-label {
+    background: rgba(1, 1, 1, .5);
+  }
+
+  nav div.navbar-group-mobile { display: none; }
+}
+
+// ****
+@include media-768 {
+  nav .nav-toggle-label{
+    top: 2rem;
+    right: 2rem;
+  }
+
+  div.navbar-group {
+    top: 2rem;
+    right: 2rem;
+  }
+}

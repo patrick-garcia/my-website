@@ -1,0 +1,56 @@
+Background
+- https://uigradients.com/#MoonlitAsteroid
+
+- hamburger icon // animate on hover
+<div class="nav-hamburger">
+  <span></span>
+</div>
+
+@mixin hamburger-icon($top:65px) {
+  background-color: rgba(255,255,255,1);
+  width: 25px;
+  height: 2px;
+  border-radius: 2px;
+  position: absolute;
+  right: 53px;
+  top: $top;
+  transition: right .2s ease-in, background-color .2s ease-in;
+}
+
+div.nav-hamburger {
+  width: 130px;
+  height: 130px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  
+  span {
+    @include hamburger-icon();
+
+    &::before {
+      content: '';
+      @include hamburger-icon(57px);
+    }
+
+    &::after {
+      content: '';
+      @include hamburger-icon(73px);
+    }
+  }
+
+  &:hover span {
+    right: 48px;
+    background-color: $white-dark2;
+  }
+
+  &:hover span::before {
+    right: 58px;
+    background-color: $white-dark2;
+  }
+
+  &:hover span::after {
+    right: 58px;
+    background-color: $white-dark2;
+  }
+}

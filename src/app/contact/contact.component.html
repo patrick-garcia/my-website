@@ -1,0 +1,16 @@
+<div class="contact">
+  <main>
+    <h1>Contact</h1>
+    <ul>
+      <li *ngFor="let con of contact">
+        <div class="info">
+          <a [href]="con.link" [target]="con.openTab ? '_ blank' : '' ">
+            <i class="{{ con.icon }}"></i>
+          </a>
+          <span>{{ con.title }}</span>
+        </div>
+      </li>
+    </ul>
+  </main>
+
+</div>

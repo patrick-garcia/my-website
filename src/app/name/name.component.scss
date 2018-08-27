@@ -1,0 +1,126 @@
+@import "../../styles.scss";
+
+$blue-font: $gradient2;
+$red-bar: $red-dark;
+
+.name-page {
+  height: 100vh; // required for align-items
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.name-page main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: column; // prefix
+  
+  .name-container {
+    display: inline-block;
+    margin-bottom: 3rem;
+    color: $white;
+
+    h1 {
+      @include font-set(100, $font-title);
+      font-size: 3rem;
+      line-height: 3rem;
+      letter-spacing: 2px;
+      @include text-shadow-set();
+    }
+    
+    h4, p {
+      @include font-set(200);
+      font-style: italic;
+      color: $white-dark;
+      @include text-shadow-set();
+    }
+
+    h4 {
+      font-size: 2rem;
+    }
+    
+    p {
+      font-size: 1.6rem;
+    }
+  }
+
+  span#red-bar { display: none; }
+}
+
+div.project-container {
+  a.button {
+    @include font-set(200);
+    @include btn-link();
+    margin: 0;
+    padding: .2rem 2rem;
+    text-transform: lowercase;
+    text-shadow: none;
+    transition: background-color .2s ease-in, color .2s ease-in, text-shadow .2s ease-in;
+
+    &:hover {
+      background-color: $white-dark;
+      color: $blue-font;
+      text-shadow: 1px 1px 1px transparentize($blue-font, 0.7);
+    }
+  }
+}
+
+
+@include media-480 {
+  .name-page main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    margin-top: 8rem;
+    position: absolute;
+    left: 10%;
+
+    span#red-bar {
+      display: block;
+      grid-column: 1/2;
+      margin-right: 2.6rem;
+      opacity: 0;
+      transform: translate(0, -16px);
+      @include slideup-redbar(.5s, .9s);
+
+      &::before {
+        content: "";
+        display: block;
+        background: $red-bar;
+        height: 13.6rem;
+        width: .2rem;
+        border-radius: .2rem;
+      }
+    }
+
+    .name-container {
+      grid-column: 2/3;
+      
+      h1 {
+        font-size: 4.4rem;
+        line-height: 4.4rem;
+      }
+
+      h4 {
+        font-size: 2.8rem;
+        @include slide-right(.4s, .3s);
+      }
+
+      p {
+        font-size: 2rem;
+        @include slide-right(.6s, .4s);
+      }
+    }
+
+    .project-container {
+      grid-column: 2/3;
+
+      a.button {
+        padding: .6rem 2.4rem;
+        text-transform: uppercase;
+      }
+    }
+  }    
+}
+
+

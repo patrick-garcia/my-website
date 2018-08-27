@@ -1,0 +1,20 @@
+//main font
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400');
+
+// title font
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200');
+
+$font: 'Source Sans Pro', sans-serif;
+$font-title: 'Raleway', sans-serif;
+
+$white: #fff;
+$white-dark: darken($white, 10%);
+$white-dark2: darken($white, 20%);
+$red-dark: darken(#ff0000, 25%);
+
+// gradient colours
+$gradient1: #2C5364;
+$gradient2: #203A43;
+$gradient3: #0F2027;
+
+

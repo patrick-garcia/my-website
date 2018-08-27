@@ -1,0 +1,90 @@
+@import "../../styles.scss";
+
+div.contact {
+  @include mobile-setup(16vh);
+}
+
+main {
+  color: $white-dark;
+  margin-top: 3rem;
+  max-width: 70rem;
+  text-align: center;
+
+  h1 {
+    @include h1-mobile-setup();
+    font-size: 3.6rem;
+  }
+  
+
+  ul li {
+    @include font-set();
+    font-size: 2rem;
+    margin: 3rem auto;
+    
+  }
+
+  div.info {
+    display: flex;
+    flex-flow: column;
+    @include text-shadow-set();
+    
+    a {
+      padding: 1rem;
+    }
+
+    i {
+      font-size: 2.6rem;
+    }
+  }
+}
+
+@include media-480 {
+  div.contact {
+    opacity: 0;
+    @include fade-in();
+  }
+}
+
+
+@include custom-min-width(660px) {
+  div.contact {
+    @include mobile-setup(22vh);
+  }
+
+  main {
+    position: absolute;
+    left: 12%;
+    
+    h1 {
+      margin-right: 5%;
+    }
+
+    ul {
+      margin-top: 4rem;
+      display: flex;
+      flex-flow: row wrap;
+    }
+  }
+
+  main ul li {
+    width: 38%;
+    margin: 1rem;
+    padding: 2rem;
+    border: 1px $white solid;
+    @include box-shadow-set();
+    transition: border .2s ease-in, box-shadow .2s ease-in, text-shadow .2s ease-in;
+  
+    &:first-child {
+        font-size: 1.8rem;
+    }
+
+    &:hover {
+      border: 1px $red-dark solid;
+      box-shadow: none;
+    }
+
+    &:hover div.info {
+      text-shadow: none;
+    }
+  }
+}

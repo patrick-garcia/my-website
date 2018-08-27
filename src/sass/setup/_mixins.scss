@@ -1,0 +1,41 @@
+@mixin font-set($weight: 300, $family: $font) {
+  font-weight: $weight;
+  font-family: $family;
+}
+
+@mixin box-shadow-set() {
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+}
+
+@mixin text-shadow-set() {
+  text-shadow: 2px 2px 4px #121212;
+}
+
+@mixin btn-link() {
+  display: inline-block;
+  background-color: transparent;
+  color: $white-dark;
+  font-size: 1.4rem;
+  line-height: 2;
+  border: 1px solid $white-dark2;
+  border-radius: 4px;
+  cursor: default;
+}
+
+@mixin mobile-setup($top: 20vh) {
+  position: absolute;
+  top: $top;
+  width: 90%;
+}
+
+@mixin h1-mobile-setup() {
+  @include font-set(400);
+  font-style: italic;
+  font-size: 2.8rem;
+  color: $white;
+  letter-spacing: 4px;
+  border-bottom: 2px solid $red-dark;
+  display: inline-block;
+  @include text-shadow-set();
+}
+

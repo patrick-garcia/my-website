@@ -1,0 +1,35 @@
+@mixin media-480 {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin media-768 {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media-1000 {
+  @media screen and (min-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin media-1280 {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin custom-min-width($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin custom-max-width($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

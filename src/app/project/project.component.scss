@@ -1,0 +1,176 @@
+@import "../../styles.scss";
+
+$blue-font: $gradient2;
+
+div.project {
+  @include mobile-setup();
+  color: $white;
+  margin-left: 2.5%;
+
+  h1 {
+    @include h1-mobile-setup();
+  }
+}
+
+// tweak points
+@include custom-min-width(425px) {
+  div.project h1 {
+    display: block;
+    margin: 0 auto;
+    width: 14rem;
+    font-size: 3.6rem;
+  }
+}
+  
+div.filters { display: none; }
+
+div.gallery {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-top: 3rem;
+  @include custom-max-width(48rem) { margin-bottom: 8rem; }
+
+  section.card { 
+    margin: 0 auto 2rem auto;
+    width: 100%;
+    height: 54vw;
+    max-width: 37.5rem;  // vw will maintain 3:2 aspect ratio
+    max-height: 25rem;
+    position: relative;
+    @include box-shadow-set();
+    border-radius: 4px;
+    
+    .gallery-img {
+      min-width: 100%;
+      min-height: 100%;
+      border-radius: 4px;
+    }
+    
+    .overlay {
+      background-color: transparentize(#000, .75);
+      transition: background-color .2s ease-in;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      border-radius: 4px;
+    }
+
+    .title {
+      @include font-set(200);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      text-align: center;
+      
+      opacity: 0;
+      transform: translate(-50%, 0);
+      transition: opacity .3s ease-in, transform .3s ease-in;
+      
+      h2 {
+        font-size: 2.4rem;
+        color: $white-dark;
+        font-style: italic;
+      }
+      
+      p {
+        font-size: 1.6rem;
+        color: $white-dark2;
+        font-style: italic;
+      }
+    }
+
+    .go-to {
+      position: absolute;
+      left: 50%;
+      opacity: 0;
+      transform: translate(-50%, -3.5rem);
+      transition: opacity .3s ease-in, transform .3s ease-in;
+
+      a {
+        @include btn-link();
+        @include font-set(200);
+        font-size: 1.2rem;
+        padding: .4rem 1.4rem;
+        transition: background .2s ease-in, color .2s ease-in; 
+      }
+    }
+  }
+}
+
+// // hover
+div.gallery section.card {
+
+  &:hover .overlay {
+    background-color: transparentize(#000, .3);
+  }
+
+  &:hover .title{
+    opacity: 1;
+    transform: translate(-50%, 5rem);
+  }
+
+  &:hover .go-to {
+    opacity: 1;
+    transform: translate(-50%, -7rem);
+  }
+
+  .go-to a {
+    &:hover {
+      background: $white-dark;
+      color: $blue-font;
+    }
+  }
+}
+
+// ****
+@include media-480 {
+  div.project {
+    opacity: 0;
+    @include fade-in();
+  }
+
+  @include custom-min-width(600px) {
+    div.project {
+      width: 96%;
+      max-width: 100rem;;
+      margin: 0;
+
+      h1 {
+        display: inline-block;
+        width: auto;
+        margin: 0;
+      }
+    }
+    div.gallery {
+      flex-flow: row wrap;
+      justify-content: space-between;
+
+      section.card {
+        width: 48%;
+        height: 32vw;
+        margin: 0 0 2rem 0;
+      }
+    }
+  }
+}
+
+@include media-768 {
+  div.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2rem;
+
+    section.card {
+      margin: 0;
+      width: 100%;
+      height: 30vw;
+    }
+  }
+}
+
+@include media-1280 {
+  div.project { top: 16vh; }
+}
+
+
