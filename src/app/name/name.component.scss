@@ -5,16 +5,25 @@ $red-bar: $red-dark;
 
 .name-page {
   height: 100vh; // required for align-items
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .name-page main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  flex-flow: column; // prefix
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column; // prefix
   
   .name-container {
     display: inline-block;
@@ -56,6 +65,7 @@ div.project-container {
     padding: .2rem 2rem;
     text-transform: lowercase;
     text-shadow: none;
+    -webkit-transition: background-color .2s ease-in, color .2s ease-in, text-shadow .2s ease-in;
     transition: background-color .2s ease-in, color .2s ease-in, text-shadow .2s ease-in;
 
     &:hover {
@@ -66,11 +76,13 @@ div.project-container {
   }
 }
 
-
 @include media-480 {
   .name-page main {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    
+    display: -ms-grid;
+        display: grid;
+    -ms-grid-columns: 1fr auto;
+        grid-template-columns: 1fr auto;
     margin-top: 8rem;
     position: absolute;
     left: 10%;
@@ -80,7 +92,8 @@ div.project-container {
       grid-column: 1/2;
       margin-right: 2.6rem;
       opacity: 0;
-      transform: translate(0, -16px);
+      -webkit-transform: translate(0, -16px);
+              transform: translate(0, -16px);
       @include slideup-redbar(.5s, .9s);
 
       &::before {
@@ -103,11 +116,13 @@ div.project-container {
 
       h4 {
         font-size: 2.8rem;
+        opacity: 0;
         @include slide-right(.4s, .3s);
       }
 
       p {
         font-size: 2rem;
+        opacity: 0;
         @include slide-right(.6s, .4s);
       }
     }

@@ -25,9 +25,16 @@ div.project {
 div.filters { display: none; }
 
 div.gallery {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 3rem;
   @include custom-max-width(48rem) { margin-bottom: 8rem; }
 
@@ -49,6 +56,7 @@ div.gallery {
     
     .overlay {
       background-color: transparentize(#000, .75);
+      -webkit-transition: background-color .2s ease-in;
       transition: background-color .2s ease-in;
       position: absolute;
       top: 0; right: 0; bottom: 0; left: 0;
@@ -64,8 +72,12 @@ div.gallery {
       text-align: center;
       
       opacity: 0;
-      transform: translate(-50%, 0);
+      -webkit-transform: translate(-50%, 0);
+              transform: translate(-50%, 0);
+      -webkit-transition: opacity .3s ease-in, -webkit-transform .3s ease-in;
+      transition: opacity .3s ease-in, -webkit-transform .3s ease-in;
       transition: opacity .3s ease-in, transform .3s ease-in;
+      transition: opacity .3s ease-in, transform .3s ease-in, -webkit-transform .3s ease-in;
       
       h2 {
         font-size: 2.4rem;
@@ -84,14 +96,19 @@ div.gallery {
       position: absolute;
       left: 50%;
       opacity: 0;
-      transform: translate(-50%, -3.5rem);
+      -webkit-transform: translate(-50%, -3.5rem);
+              transform: translate(-50%, -3.5rem);
+      -webkit-transition: opacity .3s ease-in, -webkit-transform .3s ease-in;
+      transition: opacity .3s ease-in, -webkit-transform .3s ease-in;
       transition: opacity .3s ease-in, transform .3s ease-in;
+      transition: opacity .3s ease-in, transform .3s ease-in, -webkit-transform .3s ease-in;
 
       a {
         @include btn-link();
         @include font-set(200);
         font-size: 1.2rem;
         padding: .4rem 1.4rem;
+        -webkit-transition: background .2s ease-in, color .2s ease-in;
         transition: background .2s ease-in, color .2s ease-in; 
       }
     }
@@ -105,14 +122,16 @@ div.gallery section.card {
     background-color: transparentize(#000, .3);
   }
 
-  &:hover .title{
+  &:hover .title {
     opacity: 1;
-    transform: translate(-50%, 5rem);
+    -webkit-transform: translate(-50%, 5rem);
+            transform: translate(-50%, 5rem);
   }
 
   &:hover .go-to {
     opacity: 1;
-    transform: translate(-50%, -7rem);
+    -webkit-transform: translate(-50%, -7rem);
+            transform: translate(-50%, -7rem);
   }
 
   .go-to a {
@@ -143,8 +162,13 @@ div.gallery section.card {
       }
     }
     div.gallery {
-      flex-flow: row wrap;
-      justify-content: space-between;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
 
       section.card {
         width: 48%;
@@ -157,8 +181,10 @@ div.gallery section.card {
 
 @include media-768 {
   div.gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    -ms-display: grid;
+        display: grid;
+    -ms-grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     grid-gap: 2rem;
 
     section.card {

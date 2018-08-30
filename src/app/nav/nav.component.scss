@@ -2,11 +2,17 @@
 $red-icon: $red-dark;
 
 @mixin slidedown-nav($duration: .4s, $delay: 1s) {
-  animation: slideDown $duration ease-in $delay forwards;
+  -webkit-animation: slideDown $duration ease-in $delay forwards;
+          animation: slideDown $duration ease-in $delay forwards;
+
+  @-webkit-keyframes slideDown {
+    from { opacity: 0; -webkit-transform: translateY(-60px); transform: translateY(-60px); }
+    to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
+  }
 
   @keyframes slideDown {
-    from { opacity: 0; transform: translateY(-60px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { opacity: 0; -webkit-transform: translateY(-60px); transform: translateY(-60px); }
+    to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); }
   }
 }
 
@@ -15,6 +21,7 @@ nav {
   width: 100%;
   height: 8rem;
   background: rgba(1, 1, 1, .0);
+  -webkit-transition: background .3s ease-in;
   transition: background .3s ease-in;
   z-index: 2;
 }
@@ -26,9 +33,15 @@ nav {
   height: 8rem;
   width: 8rem;
   z-index: 4;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 
   span,
   span::before,
@@ -39,8 +52,12 @@ nav {
     width: 2.4rem;
     border-radius: 2px;
     position: relative;
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    -webkit-transition: background .2s ease-in, -webkit-transform .2s ease-in;
+    transition: background .2s ease-in, -webkit-transform .2s ease-in;
     transition: background .2s ease-in, transform .2s ease-in;
+    transition: background .2s ease-in, transform .2s ease-in, -webkit-transform .2s ease-in;
   }
 
   span::before,
@@ -65,14 +82,26 @@ div.navbar-group-mobile {
   left: 0;
   background: rgba(1, 1, 1, .7);
   width: 100%;
-  transform: scale(1, 0);
-  transform-origin: top;
+  -webkit-transform: scale(1, 0);
+          transform: scale(1, 0);
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transition: -webkit-transform 400ms ease-in-out;
+  transition: -webkit-transform 400ms ease-in-out;
   transition: transform 400ms ease-in-out;
+  transition: transform 400ms ease-in-out, -webkit-transform 400ms ease-in-out;
 
   ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: 2rem 0 0 0;
   }
 }
@@ -87,6 +116,7 @@ div.navbar-group-mobile ul li {
     text-decoration: none;
     text-transform: uppercase;
     opacity: 0;
+    -webkit-transition: opacity 150ms ease-in-out;
     transition: opacity 150ms ease-in-out;
     
     &::after {
@@ -97,6 +127,7 @@ div.navbar-group-mobile ul li {
       background: $red-dark;
       margin: .4rem auto 0 auto;
       opacity: .75;
+      -webkit-transition: opacity .2s ease-in;
       transition: opacity .2s ease-in;
     }
   }
@@ -106,22 +137,26 @@ input[type=checkbox] {
   display: none;
 
   &:checked ~ div.navbar-group-mobile {
-    transform: scale(1, 1);
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
   }
 
   &:checked ~ .navbar-group-mobile ul li a {
     opacity: 1;
+    -webkit-transition: opacity 250ms ease-in-out 250ms;
     transition: opacity 250ms ease-in-out 250ms;
   }
 
   &:checked ~ label span, &:checked ~ label span::before, &:checked ~ label span::after {
     background: darken($white, 30%);
-    transform: translateX(5px); // includes two pseudo element, below line reverses
+    -webkit-transform: translateX(5px);
+            transform: translateX(5px); // includes two pseudo element, below line reverses
   }
 
   &:checked ~ label.nav-toggle-label span::before, &:checked ~ label.nav-toggle-label span::after {
     content: '';
-    transform: translateX(-10px); // override span above
+    -webkit-transform: translateX(-10px);
+            transform: translateX(-10px); // override span above
   }  
 }
 
@@ -135,6 +170,7 @@ div.navbar-group {
   .nav-toggle-label {
     margin: 2rem 2rem 0 0;
     background: rgba(1, 1, 1, 0);
+    -webkit-transition: background .3s ease-in;
     transition: background .3s ease-in;
   }
 
@@ -145,10 +181,15 @@ div.navbar-group {
     margin: 10rem 2rem 0 0;
     width: 8rem;
     opacity: 0;
-    transform: scaleY(0);
-    transform-origin: top;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: top;
+            transform-origin: top;
     background: none;
+    -webkit-transition: opacity .3s ease-in, background .3s ease-in, -webkit-transform .3s ease-in;
+    transition: opacity .3s ease-in, background .3s ease-in, -webkit-transform .3s ease-in;
     transition: opacity .3s ease-in, transform .3s ease-in, background .3s ease-in;
+    transition: opacity .3s ease-in, transform .3s ease-in, background .3s ease-in, -webkit-transform .3s ease-in;
     
     ul {
       padding: 0;
@@ -162,6 +203,7 @@ div.navbar-group {
     position: relative;
     color: $white;
     font-size: 2.4rem;
+    -webkit-transition: color .2s ease-in;
     transition: color .2s ease-in;
     
     &:hover {
@@ -170,7 +212,8 @@ div.navbar-group {
 
     &:hover ul li.nav-icon-side {
       color: rgba(255, 255, 255, 1);
-      transform: scaleX(1);
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
       background: rgba(1, 1, 1, .5);
     }
 
@@ -181,24 +224,37 @@ div.navbar-group {
       background: rgba(1, 1, 1, 0);
       width: 11rem;
       height: 4.4rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
       z-index: 2;
       text-transform: uppercase;
       position: absolute;
       left: -11rem;
       top: -1rem;
-      transform: translate(0, -2.4rem);
-      transform: scaleX(0);
-      transform-origin: right;
+      -webkit-transform: translate(0, -2.4rem);
+              transform: translate(0, -2.4rem);
+      -webkit-transform: scaleX(0);
+              transform: scaleX(0);
+      -webkit-transform-origin: right;
+              transform-origin: right;
+      -webkit-transition: color .2s ease-in, background .2s ease-in, -webkit-transform .25s ease-in;
+      transition: color .2s ease-in, background .2s ease-in, -webkit-transform .25s ease-in;
       transition: color .2s ease-in, background .2s ease-in, transform .25s ease-in;
+      transition: color .2s ease-in, background .2s ease-in, transform .25s ease-in, -webkit-transform .25s ease-in;
     }
   }
     
   input[type=checkbox]:checked ~ div.navbar-group {
     opacity: 1;
-    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
     background: rgba(1, 1, 1, .5);
   }
 

@@ -24,8 +24,13 @@ main {
   }
 
   div.info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
     @include text-shadow-set();
     
     a {
@@ -61,8 +66,13 @@ main {
 
     ul {
       margin-top: 4rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-flow: row wrap;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap;
     }
   }
 
@@ -72,7 +82,10 @@ main {
     padding: 2rem;
     border: 1px $white solid;
     @include box-shadow-set();
+    -webkit-transition: border .2s ease-in, text-shadow .2s ease-in, -webkit-box-shadow .2s ease-in;
+    transition: border .2s ease-in, text-shadow .2s ease-in, -webkit-box-shadow .2s ease-in;
     transition: border .2s ease-in, box-shadow .2s ease-in, text-shadow .2s ease-in;
+    transition: border .2s ease-in, box-shadow .2s ease-in, text-shadow .2s ease-in, -webkit-box-shadow .2s ease-in;
   
     &:first-child {
         font-size: 1.8rem;
@@ -80,7 +93,8 @@ main {
 
     &:hover {
       border: 1px $red-dark solid;
-      box-shadow: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
     }
 
     &:hover div.info {

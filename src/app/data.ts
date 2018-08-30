@@ -34,11 +34,11 @@ export const fontAwesomeIcons = [
 // profile
 export const profile:object = {
   
-  paragraph1: "After many years in technogy industry in a sales role I look to transition the next stage on my professional career as a front-end developer.  I'm looking to contribute & be mentored in an organization with opportunities to expand my skill set.",
+  paragraph1: "After many years in the tech industry in a sales role I look to transition the next stage on my career as a front-end developer.  I hope to contribute and be mentored in an organization with opportunities to expand my skill set.",
 
-  paragraph2: "I have attended in-class courses at HackerYou.com for Web Development & Javascript. I have also learned a great deal on my own using many resources available online especially Lynda.com.",
+  paragraph2: "I attended in-class courses at HackerYou.com (Toronto) for Web Development and JavaScript/jQuery. Additionally, I have learned a great deal on my own using many resources available online especially Lynda.com.",
 
-  paragraph3: "Ultimaltely I would like to be a Full Stack developer.  I have started introductory knowledge of SQL and Firebase."
+  paragraph3: "Ultimately my goal is to be a Full Stack developer.  I have started with SQL & Firebase as introduction to database."
 
 }
 
@@ -73,7 +73,8 @@ export const skills = [
     title: "Working On",
     list: [
       "Firebase",
-      "React"
+      "React",
+      "SQL"
     ]
   }
 ]
@@ -82,7 +83,7 @@ export const skills = [
 export const gallery = [
   {
     heading: "chess timer",
-    desc: "pure javascript / mobile web app",
+    desc: "javascript / mobile web app",
     imgPath: "https://preview.ibb.co/fObJkp/chess_timer_gradient5.jpg",
     url: "http://patrickgarcia.ca/chess-timer"
   },
@@ -94,19 +95,19 @@ export const gallery = [
   },
   {
     heading: "mock website: agency",
-    desc: "basic html5 & css3",
+    desc: "html5 & css3",
     imgPath: "https://preview.ibb.co/m8TMQz/fekra_website3.jpg",
     url: "http://patrickgarcia.ca/agency"
   },
   {
     heading: "rock climbing",
-    desc: "sass & javascript / responsive",
+    desc: "sass & javascript / responsive design",
     imgPath: "https://preview.ibb.co/evueQp/rock_climbing125_vig.jpg",
     url: "http://patrickgarcia.ca/rock-climbing"
   },
   {
-    heading: "this website",
-    desc: "1st angular site",
+    heading: "my website",
+    desc: "first angular website",
     imgPath: "https://preview.ibb.co/m3X1se/profile2.jpg",
     url: "#"
   }
