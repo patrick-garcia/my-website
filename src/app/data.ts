@@ -1,5 +1,5 @@
 // my info
-export const myPersonalInfo:object = {
+export const myPersonalInfo:any = {
   firstName: "Patrick",
   lastName: "Garcia",
   title: "front-end developer",
@@ -8,7 +8,7 @@ export const myPersonalInfo:object = {
 }
 
 // font awesome icons; nav component
-export const fontAwesomeIcons = [
+export const fontAwesomeIcons:any = [
   {
     name: "home",
     icon: "fa-home",
@@ -32,17 +32,15 @@ export const fontAwesomeIcons = [
 ]
 
 // profile
-export const profile:object = {
-  
-  paragraph1: "After many years in the tech industry in a sales role I look to transition the next stage on my career as a front-end developer.  I hope to contribute and be mentored in an organization with opportunities to expand my skill set.",
+export const profile:any = {
+  paragraph1: "I look to transition the next stage on my career as a front end developer.  I hope to contribute and be mentored in an organization with opportunities to expand my skill set.",
 
-  paragraph2: "I attended in-class courses at HackerYou.com (Toronto) for Web Development and JavaScript/jQuery. Additionally, I have learned a great deal on my own using many resources available online especially Lynda.com.",
+  paragraph2: "I attended in-class courses at HackerYou (Toronto) for Web Development and JavaScript/jQuery. I've also completed PHP Certification at George Brown College where I built a full stack e-commerce site - see project section.",
 
-  paragraph3: "Ultimately my goal is to be a Full Stack developer.  I have started with SQL & Firebase as introduction to database."
-
+  paragraph3: "Ultimately my goal is to be a Full Stack developer."
 }
 
-export const skills = [
+export const skills:any = [
   {
     title: "Language",
     list: [
@@ -79,8 +77,39 @@ export const skills = [
   }
 ]
 
+export const contactDetails:any = [
+  {
+    title: "pg@patrickgarcia.ca",
+    icon: "far fa-envelope",
+    link: "mailto:pg@patrickgarcia.ca",
+    noTab: true
+  },
+  {
+    title: "289.242.7858",
+    icon: "fas fa-mobile-alt",
+    link: "tel:2892427858",
+    noTab: true
+  },
+  {
+    title: "LinkedIn",
+    icon: "fab fa-linkedin",
+    link: "https://www.linkedin.com/in/patrick-g-3193094"
+  },
+  {
+    title: "GitHub",
+    icon: "fab fa-github",
+    link: "https://github.com/patrick-garcia"
+  }
+]
+
 // project
-export const gallery = [
+export const gallery:any = [
+  {
+    heading: "e-commerce: music store",
+    desc: "PHP / MySQL / JavaScript / Bootstrap",
+    imgPath: "https://i.ibb.co/F7Y3v7d/crazy-lou3.jpg",
+    url: "http://patrickgarcia.ca/music-store"
+  },
   {
     heading: "chess timer",
     desc: "javascript / mobile web app",
@@ -94,49 +123,43 @@ export const gallery = [
     url: "http://patrickgarcia.ca/buy-vs-rent"
   },
   {
-    heading: "mock website: agency",
-    desc: "html5 & css3",
-    imgPath: "https://preview.ibb.co/m8TMQz/fekra_website3.jpg",
-    url: "http://patrickgarcia.ca/agency"
-  },
-  {
     heading: "rock climbing",
-    desc: "sass & javascript / responsive design",
+    desc: "sass & javascript / responsive site",
     imgPath: "https://preview.ibb.co/evueQp/rock_climbing125_vig.jpg",
     url: "http://patrickgarcia.ca/rock-climbing"
   },
-  {
-    heading: "my website",
-    desc: "first angular website",
-    imgPath: "https://preview.ibb.co/m3X1se/profile2.jpg",
-    url: "#"
-  }
+  // {
+  //   heading: "mock website: agency",
+  //   desc: "html5 & css3",
+  //   imgPath: "https://preview.ibb.co/m8TMQz/fekra_website3.jpg",
+  //   url: "http://patrickgarcia.ca/agency"
+  // },
+  // {
+  //   heading: "portfolio website",
+  //   desc: "angular 6 / firebase",
+  //   imgPath: "https://i.ibb.co/2j71zDM/profile-2-1.jpg",
+  //   url: "#",
+  //   noTab: true
+  // },
 ]
 
-export const contactDetails = [
+export const ufGallery:any = [
   {
-    title: "pg.patrickgarcia@gmail.com",
-    icon: "far fa-envelope",
-    link: "mailto:pg.patrickgarcia@gmail.com",
-    openTab: false
+    heading: "AWS ExecLeaders",
+    desc: "Custom Hub Build",
+    imgPath: "https://i.ibb.co/n7BQ3Lt/execleaders.jpg",
+    url: "https://enterprise-resources.awscloud.com/execleaders"
   },
   {
-    title: "289.242.7858",
-    icon: "fas fa-mobile-alt",
-    link: "tel:2892427858",
-    openTab: false
+    heading: "AAA Hub",
+    desc: "Custom Hub Build",
+    imgPath: "https://i.ibb.co/tMTjhTy/aaa.jpg",
+    url: "https://calsate.aaa.com/evia"
   },
   {
-    title: "LinkedIn",
-    icon: "fab fa-linkedin",
-    link: "https://www.linkedin.com/in/patrick-g-3193094/",
-    openTab: true
+    heading: "Capital One Support Hub",
+    desc: "Custom Hub Build",
+    imgPath: "https://i.ibb.co/0Q9jt0j/capital-one.jpg",
+    url: "https://support.capitalone.ca/"
   },
-  {
-    title: "GitHub",
-    icon: "fab fa-github",
-    link: "https://github.com/patrick-garcia",
-    openTab: true
-  }
 ]
-

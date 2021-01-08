@@ -1,37 +1,45 @@
 <div class="project">
-  <h1>Projects</h1>
-
+  <h1>{{ (project$ | async)?.heading }}</h1>
   <main>
-    <div class="filters">
-      <div class="filter">all</div>
-      <div class="filter">jQuery</div>
-      <div class="filter">angular</div>
-      <div class="filter">Sass</div>
-    </div>
-
-    <div class="gallery">
-      <section class="card" onclick="" *ngFor="let x of gallery">
-        
+    <div class="gallery personal-projects">
+      <section class="card" onclick="" *ngFor="let proj of (project$ | async)?.project">
         <div class="gallery-img"
           [ngStyle]="{
-            'background': 'url(' + x.imgPath + ') center center',
+            'background': 'url(' + proj.imgPath + ') center center',
             'background-size': 'cover'
           }">
         </div>
-        
         <div class="overlay"></div>
-
         <div class="title">
-          <h2>{{ x.heading }}</h2>
-          <p>{{ x.desc }}</p>
+          <h2>{{ proj.title }}</h2>
+          <p>{{ proj.desc }}</p>
         </div>
-        
         <div class="go-to">
-          <a [href]="x.url" target="_blank">see website</a>
+          <a [href]="proj.url" [target]="proj.noTab ? '' : '_blank' ">see website</a>
         </div>
-
       </section>
     </div>
-    
+  </main>
+
+  <h1>{{ (project2$ | async)?.heading }}</h1>
+  <main>
+    <div class="gallery uf-projects">
+      <section class="card" onclick="" *ngFor="let proj of (project2$ | async)?.project2">
+        <div class="gallery-img"
+          [ngStyle]="{
+            'background': 'url(' + proj.imgPath + ') center center',
+            'background-size': 'cover'
+          }">
+        </div>
+        <div class="overlay"></div>
+        <div class="title">
+          <h2>{{ proj.title }}</h2>
+          <p>{{ proj.desc }}</p>
+        </div>
+        <div class="go-to">
+          <a [href]="proj.url" [target]="proj.noTab ? '' : '_blank' ">see website</a>
+        </div>
+      </section>
+    </div>
   </main>
 </div>

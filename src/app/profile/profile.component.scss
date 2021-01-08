@@ -2,7 +2,9 @@
 
 div.profile {
   @include mobile-setup();
-  margin-left: 2.5%;
+  margin: 0 auto;
+  left: 50%;
+  transform: translate(-50%, 0);
   
   main {
     margin-bottom: 3rem;
@@ -39,10 +41,7 @@ div.skills {
         &::after {
           content: "'s";
           text-transform: lowercase;
-        }
-      }
-    }
-  }
+  }}}}
 
   section h4 {
     @include font-set(400);
@@ -83,12 +82,11 @@ div.skills {
 @include media-480 {
   div.profile {
     width: 96%;
-    margin-left: 0;
     opacity: 0;
     @include fade-in();
-
+    
     main {      
-      margin-bottom: 5rem;
+      padding: 0 2%;
 
       h1 {
         font-size: 3.6rem;
@@ -122,12 +120,9 @@ div.skills {
 @include media-768 {
   div.profile {
     max-width: 80rem;
-  }
 
-  // tweak point
-  @include custom-min-width(840px) {
-    div.profile {
-      margin-left: 2rem;
+    main {
+      padding: 0;
     }
   }
 
@@ -160,14 +155,12 @@ div.skills {
 
       ul li::before {
         width: 1rem;
-      }
-    }
-  }
+  }}}
 }
 
 @include media-1000 {
   div.profile {
-    margin-left: 3rem;
+    top: 16vh;
   }
 }
 

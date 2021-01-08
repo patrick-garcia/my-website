@@ -2,18 +2,16 @@
   <main>
     <h1>Profile</h1>
     <article>
-      <p>{{ bio.paragraph1 }}</p>
-      <p>{{ bio.paragraph2 }}</p>
-      <p>{{ bio.paragraph3 }}</p>
+      <p *ngFor="let pro of (profile$ | async)?.profileArray">{{ pro }}</p>
     </article>
   </main>
   
   <div class="skills">
-    <section *ngFor="let item of newList">
-      <h4>{{ item.title }}</h4>
+    <section *ngFor="let skl of (skill$ | async)?.skill">
+      <h4>{{ skl.title }}</h4>
       <ul>
-        <li *ngFor="let listItem of item.list">
-          {{ listItem }}
+        <li *ngFor="let sk of skl.list">
+          {{ sk }}
         </li>
       </ul>
     </section>

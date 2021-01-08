@@ -23,7 +23,7 @@
   cursor: default;
 }
 
-@mixin mobile-setup($top: 20vh) {
+@mixin mobile-setup($top: 16vh) {
   position: absolute;
   top: $top;
   width: 90%;
