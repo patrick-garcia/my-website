@@ -2,9 +2,9 @@
   <main>
     <h1>Contact</h1>
     <ul>
-      <li onclick="" *ngFor="let con of contact">
+      <li onclick="" *ngFor="let con of (contact$ | async)?.contact">
         <div class="info">
-          <a [href]="con.link" [target]="con.openTab ? '_ blank' : '' ">
+          <a [href]="con.link" [target]="con.noTab ? '' : '_blank' ">
             <i class="{{ con.icon }}"></i>
           </a>
           <span>{{ con.title }}</span>
@@ -12,5 +12,4 @@
       </li>
     </ul>
   </main>
-
 </div>

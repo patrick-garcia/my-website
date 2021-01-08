@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { skills } from '../data';
-import { profile } from '../data';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -9,13 +9,38 @@ import { profile } from '../data';
 })
 export class ProfileComponent implements OnInit {
 
-  newList = skills;
+  private profileDoc: AngularFirestoreDocument<ProfileInterface>;
+  profile$: Observable<ProfileInterface>;
 
-  bio = profile;
+  private skillDoc: AngularFirestoreDocument<SkillInterface>;
+  skill$: Observable<SkillInterface>;
 
-  constructor() { }
+  constructor(private afs: AngularFirestore) {
 
-  ngOnInit() {
+    this.profileDoc = afs.doc<ProfileInterface>('my-website/profile');
+    this.profile$ = this.profileDoc.valueChanges();
+
+    this.skillDoc = afs.doc<SkillInterface>('my-website/skills');
+    this.skill$ = this.skillDoc.valueChanges();
+
   }
 
+  ngOnInit() {
+    this.profile$.subscribe(data => {
+      return data;
+    })
+
+    this.skill$.subscribe(data => {
+      return data;
+    })
+  }
+}
+
+interface ProfileInterface {
+  profileArray: string[];
+}
+
+interface SkillInterface {
+  title: string;
+  list: string[];
 }
